@@ -6,6 +6,7 @@ copy_file "tailwind.config.js"
 copy_file "app/assets/stylesheets/application.tailwind.css"
 
 gem "devise"
+
 gem_group :development, :test do
   gem "standard"
   gem "faker"
@@ -35,7 +36,7 @@ generate("rspec:install")
 
 # Shoulda Matchers setup
 append_to_file "spec/rails_helper.rb" do
-  <<~CODE
+  <<-RUBY
     # Shoulda Matchers Configuration
     Shoulda::Matchers.configure do |config|
         config.integrate do |with|
@@ -43,7 +44,7 @@ append_to_file "spec/rails_helper.rb" do
             with.library :rails
         end
     end
-  CODE
+  RUBY
 end
 
 append_to_file "app/javascript/controllers/index.js" do
